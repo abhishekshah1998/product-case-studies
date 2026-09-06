@@ -1,5 +1,15 @@
 # Self-serve data onboarding and integrations
 
+## At a glance
+
+| | |
+| --- | --- |
+| **Role** | Product management for onboarding, data workflows, and B2B integrations |
+| **Scope** | Customer data import, mapping, validation, exception handling, and reusable connectors |
+| **Stage** | Transition from services-led setup toward guided self-service |
+| **Personal ownership** | Discovery, problem framing, prioritization, workflow design, and cross-functional delivery |
+| **Evidence status** | Product direction and shipped capabilities are supported. Public metric values are withheld here pending reconciliation of definitions and source records. |
+
 ## Context
 
 A B2B data and analytics product relied on client-specific onboarding and integrations. Customers needed to import, map, enrich, and use their data quickly, but repeated setup work created delays and ongoing services dependency.
@@ -23,19 +33,19 @@ I framed the problem around time to first trusted insight rather than file-uploa
 
 ### Standardize the onboarding workflow
 
-Design automation around repeated setup steps while preserving clear checkpoints for customer-specific decisions. This reduced setup time by approximately 40%.
+Design automation around repeated setup steps while preserving clear checkpoints for customer-specific decisions. The resulting workflow reduced setup effort and time to value; the exact percentage is withheld pending metric reconciliation.
 
 ### Make data import self-serve
 
-Launch an import and field-mapping experience that allowed customers to understand how their source data would map into the product. Adoption increased by more than 25%, reducing reliance on custom integrations.
+Launch an import and field-mapping experience that allowed customers to understand how their source data would map into the product. Adoption grew and reliance on custom integrations declined.
 
 ### Expand through reusable integrations
 
-Prioritize integrations based on customer reach, data value, implementation reuse, and support burden. Six-plus SaaS integrations ultimately reached more than 40% client adoption.
+Prioritize integrations based on customer reach, data value, implementation reuse, and support burden. Multiple SaaS integrations reused common authentication, mapping, sync-status, and error-handling patterns.
 
 ### Validate adjacent value
 
-Agency interviews exposed demand for white-label analytics. The capability became an additional service associated with an approximately 15% increase in retention and an estimated 10% revenue increase.
+Agency interviews exposed demand for white-label analytics. The capability became an adjacent offering, but its retention and revenue effects are not quantified publicly here because the underlying definitions still require confirmation.
 
 ## Key decisions and trade-offs
 
@@ -47,6 +57,27 @@ Agency interviews exposed demand for white-label analytics. The capability becam
 ## Outcome
 
 The experience moved toward a product-led onboarding model: customers gained control, customer success gained visibility, and engineering could invest in reusable capabilities instead of repeated setup work.
+
+## Product artifact: from handoffs to a reusable workflow
+
+```mermaid
+flowchart TB
+    subgraph Before[Before: services-led setup]
+        B1[Receive source file] --> B2[Custom mapping]
+        B2 --> B3[Engineering handoff]
+        B3 --> B4[Manual correction]
+    end
+    subgraph After[After: guided self-service]
+        A1[Import] --> A2[Map with reusable rules]
+        A2 --> A3[Validate]
+        A3 --> A4{Errors?}
+        A4 -- Yes --> A5[Explain and recover]
+        A5 --> A3
+        A4 -- No --> A6[First trusted insight]
+    end
+```
+
+The design target was not merely a successful upload. It was the customer's first trusted insight, including understandable validation and a recovery path when data was incomplete or malformed.
 
 ## What I would test next
 

@@ -1,5 +1,15 @@
 # AI-enabled workforce operations
 
+## At a glance
+
+| | |
+| --- | --- |
+| **Role** | Product leadership across workforce operations, platform workflows, and reliability |
+| **Scope** | Six operations teams and more than 100 daily capacity and staffing decisions |
+| **Stage** | Multi-phase operational platform evolution |
+| **Personal ownership** | Problem framing, roadmap sequencing, operating-model design, cross-functional rollout, and measurement |
+| **Evidence status** | Rounded, publicly shared outcomes. The manual-reassignment percentage is intentionally withheld pending metric-definition reconciliation. |
+
 ## Context
 
 A high-volume healthcare operations organization depended on multiple teams to process time-sensitive work. Staffing and allocation decisions were frequent, but performance data was fragmented and parts of the workflow sat outside the assignment system.
@@ -35,7 +45,7 @@ Diagnose why work bypassed task assignment, then migrate it into the tracked wor
 
 ### 3. Automate allocation with operational constraints
 
-Roll out ML-based routing that considered skills, certifications, and urgency. The goal was not maximum automation; it was fewer unnecessary handoffs while protecting safety and service-level requirements. Manual reassignments fell by 15%.
+Roll out ML-based routing that considered skills, certifications, and urgency. The goal was not maximum automation; it was fewer unnecessary handoffs while protecting safety and service-level requirements. Manual reassignments declined; the exact public percentage is withheld until the baseline and measurement window are reconciled.
 
 ### 4. Improve platform control and resilience
 
@@ -51,6 +61,22 @@ Replace a 16-step engineering runbook with self-serve role-based access control,
 ## Outcome
 
 The platform evolved from reactive task administration into a more measurable operating system for workforce decisions. The most important result was not a single model or dashboard; it was a reinforcing loop between better workflow coverage, more reliable data, improved allocation, and faster operational response.
+
+## Product artifact: the reinforcing platform loop
+
+```mermaid
+flowchart LR
+    A[Capture more operational work] --> B[Improve trusted workforce data]
+    B --> C[Plan capacity and staffing]
+    C --> D[Route work with constraints]
+    D --> E[Measure overrides and outcomes]
+    E --> A
+    F[Human override] --> D
+    E --> G[Incident and workflow improvements]
+    G --> A
+```
+
+The sequencing mattered: broader automation came after workflow coverage and measurement improved. Override behavior remained visible so that exceptions could inform later product decisions.
 
 ## What I would test next
 
